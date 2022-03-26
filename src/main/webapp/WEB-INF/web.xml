@@ -15,4 +15,15 @@
     <url-pattern>/LoginUserServlet</url-pattern>
     <url-pattern>/LoginUserServlet.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterUserServlet</display-name>
+    <servlet-name>RegisterUserServlet</servlet-name>
+    <servlet-class>airbnb.servlet.RegisterUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterUserServlet</servlet-name>
+    <url-pattern>/RegisterUserServlet</url-pattern>
+    <url-pattern>/RegisterUserServlet.do</url-pattern>
+  </servlet-mapping>
 </web-app>
