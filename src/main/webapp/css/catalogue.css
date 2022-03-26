@@ -1,0 +1,130 @@
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation ul li {
+  display: inline-block;
+}
+
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  letter-spacing: 5px;
+  font-size: 1.3em;
+}
+.navigation ul li a {
+  display: block;
+  padding: 0.2rem 1rem;
+  transition: all 0.4s linear;
+  border-radius: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  letter-spacing: 0.03em;
+}
+.main {
+  padding-top: 5rem;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+.form-control {
+  border-radius: 10px;
+  height: 30px;
+  border: 1px solid #d3d2d2;
+}
+#site-search{
+  height: 32px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border: 1px solid #d1d1d1;
+    border-radius: 12px;
+}
+
+#button-search{
+  height: 32px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border: 1px solid #d1d1d1;
+    border-radius: 12px;
+}
+
+#button-search:hover{
+  background-color: #d1d1d1;
+}
+
+.container {
+  margin-left: 48px;
+  margin-right: 48px;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.container .image {
+  width: 250px;
+  height: 220px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  margin-bottom: 100px;
+  margin-right: 1%;
+}
+.container .image:last-child {
+  margin-right: 0;
+}
+.container .image:hover {
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s;
+}
+
+.container .image img {
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+}
+
+.container h4 {
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.container p {
+  font-weight: 200;
+  font-size: 13px;
+  color: #828282;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    justify-content: center;
+  }
+  .navigation {
+    width: 100%;
+  }
+  .navigation ul li {
+    display: inline-block;
+  }
+  .navigation ul li a {
+    display: block;
+    padding: 0.3rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,118 @@
+
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation ul li {
+  display: inline-block;
+}
+
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  letter-spacing: 5px;
+  font-size: 1.3em;
+}
+.navigation ul li a {
+  display: block;
+  padding: 0.2rem 1rem;
+  transition: all 0.4s linear;
+  border-radius: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  letter-spacing: 0.03em;
+}
+.main {
+  padding-top: 5rem;
+}
+.search .form-control,
+.start {
+  margin-bottom: 20px;
+  background: rgb(255, 255, 255);
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 40.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+
+  height: 90%;
+  width: 100%;
+  position: absolute;
+}
+.container {
+  margin: 10px;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.container .image {
+  width: 250px;
+  height: 220px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  margin-bottom: 100px;
+  margin-right: 1%;
+}
+.container .image:last-child {
+  margin-right: 0;
+}
+.container .image:hover {
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s;
+}
+
+.container .image img {
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+}
+
+.container h4 {
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.container p {
+  font-weight: 200;
+  font-size: 13px;
+  color: #828282;
+}
+
+@media only screen and (max-width: 900px) {
+  .navigation {
+    width: 100%;
+  }
+  .navigation ul li {
+    display: inline-block;
+  }
+  .navigation ul li a {
+    display: block;
+    padding: 0.3rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 10px;
+  }
+
+}
