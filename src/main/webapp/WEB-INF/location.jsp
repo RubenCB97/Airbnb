@@ -13,19 +13,9 @@
   </head>
 
   <body>
-    <header class="header">
-      <div class="menu">
-        <a href="./mainweb.html" id="logo">WATERBNB</a>
-        <nav class="navigation">
-          <ul>
-            <li><a href="./mainweb.html">Inicio</a></li>
-            <li><a href="./location.html" class="selected">Localización</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="./login.html">Salir</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  
+    <%@include file="/WEB-INF/menu.jsp" %>
+
     <main class="main">
       <div class="search">
         <select required name="provincia" class="form-control">
@@ -111,7 +101,7 @@
           <a href="detail.html"
             ><img
               class="card-image"
-              src="./images/House1.jpg"
+              src="${pageContext.request.contextPath}/images/House1.jpg"
               alt="TestHouse"
               />
             </a>
@@ -129,7 +119,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house16.jpg"
+              src="${pageContext.request.contextPath}/images/house16.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -145,7 +135,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house10.jpg"
+              src="${pageContext.request.contextPath}/images/house10.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -162,7 +152,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house11.jpg"
+              src="${pageContext.request.contextPath}/images/house11.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -179,7 +169,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house13.jpg"
+              src="${pageContext.request.contextPath}/images/house13.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">

@@ -13,19 +13,9 @@
   </head>
 
   <body>
-    <header class="header">
-      <div class="menu">
-        <a href="./mainweb.html" id="logo">WATERBNB</a>
-        <nav class="navigation">
-          <ul>
-            <li><a href="./mainweb.html" class="selected">Inicio</a></li>
-            <li><a href="./location.html">Localización</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="./login.html">Salir</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+   	
+   	<%@include file="/WEB-INF/menu.jsp"  %>
+   
     <main class="main">
       <div class="category">
         <select required name="categoria" class="form-control">
@@ -51,7 +41,7 @@
           <a href="detail.html"
             ><img
               class="card-image"
-              src="./images/House1.jpg"
+              src="${pageContext.request.contextPath}/images/House1.jpg"
               alt="TestHouse"
               />
             </a>
@@ -69,7 +59,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house16.jpg"
+              src="${pageContext.request.contextPath}/images/house16.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -86,7 +76,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/House4.jpeg"
+              src="${pageContext.request.contextPath}/images/House4.jpeg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -103,7 +93,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/House5.jpg"
+              src="${pageContext.request.contextPath}/images/House5.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -120,7 +110,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house10.jpg"
+              src="${pageContext.request.contextPath}/images/house10.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -137,7 +127,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house11.jpg"
+              src="${pageContext.request.contextPath}/images/house11.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -154,7 +144,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house12.jpg"
+              src="${pageContext.request.contextPath}/images/house12.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -171,7 +161,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house13.jpg"
+              src="${pageContext.request.contextPath}/images/house13.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -188,7 +178,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house14.jpg"
+              src="${pageContext.request.contextPath}/images/house14.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -205,7 +195,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/house15.jpg"
+              src="${pageContext.request.contextPath}/images/house15.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -222,7 +212,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/House8.jpg"
+              src="${pageContext.request.contextPath}/images/House8.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">
@@ -239,7 +229,7 @@
           <a
             ><img
               class="card-image"
-              src="./images/Airbnb-Cabins-Japan.jpg"
+              src="${pageContext.request.contextPath}/images/Airbnb-Cabins-Japan.jpg"
               alt="TestHouse"
           /></a>
           <div class="card-text">

@@ -34,4 +34,34 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MainWebServlet</display-name>
+    <servlet-name>MainWebServlet</servlet-name>
+    <servlet-class>airbnb.servlet.MainWebServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MainWebServlet</servlet-name>
+    <url-pattern>/MainWeb</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileServlet</display-name>
+    <servlet-name>ProfileServlet</servlet-name>
+    <servlet-class>airbnb.servlet.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileServlet</servlet-name>
+    <url-pattern>/Profile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteProfileServlet</display-name>
+    <servlet-name>DeleteProfileServlet</servlet-name>
+    <servlet-class>airbnb.servlet.DeleteProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProfileServlet</servlet-name>
+    <url-pattern>/Delete</url-pattern>
+  </servlet-mapping>
 </web-app>

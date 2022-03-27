@@ -12,19 +12,9 @@
   </head>
 
   <body>
-    <header class="header">
-      <div class="menu">
-        <a id="logo" href="./mainweb.html">WATERBNB</a>
-        <nav class="navigation">
-          <ul>
-            <li><a href="./mainweb.html">Inicio</a></li>
-            <li><a href="./location.html">Localización</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="./login.html">Salir</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    
+    <%@include file="/WEB-INF/menu.jsp" %>
+
     <main class="main">
       <div class="container">
         <h2>Villas Canava II, piscina privada, Santorini</h2>

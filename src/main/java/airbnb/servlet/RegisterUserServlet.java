@@ -32,14 +32,14 @@ public class RegisterUserServlet extends HttpServlet {
      */
     public RegisterUserServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		logger.info("RegisterUserServlet-GET");
+		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/register.jsp");
 		view.forward(request, response);
 	}
@@ -63,16 +63,15 @@ public class RegisterUserServlet extends HttpServlet {
 		user.setEmail(request.getParameter("email"));
 		List<User> allUsers = userDAO.getAll();
 		
-		logger.info("Usuario"+user.getUsername());
-		logger.info("Email"+user.getEmail());
+		logger.info("Usuario "+user.getUsername());
+		logger.info("Email "+user.getEmail());
 		
 		for(User us : allUsers) {
 			if (us.getEmail().equals(user.getEmail())) {
 				request.setAttribute("messages","Correo ya registrado");
 				emailexist = true;
 				doGet(request,response);
-			}
-			
+			}	
 		}
 		
 		if(userDAO.get(user.getUsername())!= null)

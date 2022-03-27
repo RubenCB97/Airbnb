@@ -30,19 +30,18 @@ public class LoginUserServlet extends HttpServlet {
      */
     public LoginUserServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		logger.info("LoginUserServlet-GET");
 		HttpSession session = request.getSession();
 		
 		if (session.getAttribute("user")!=null) {
 			logger.info("entrando");
-			response.sendRedirect("/WEB-INF/mainweb.jsp"); //Página main //TODO
+			response.sendRedirect("MainWeb");
 		}
 		else {
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/login.jsp");
@@ -54,7 +53,6 @@ public class LoginUserServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 		logger.info("LoginUserServlet-POST");
 		
@@ -77,7 +75,7 @@ public class LoginUserServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("user", user);
-			response.sendRedirect("/WEB-INF/mainweb.jsp"); //TODO
+			response.sendRedirect("MainWeb");
 		}
 		
 		else 
@@ -88,6 +86,7 @@ public class LoginUserServlet extends HttpServlet {
 				request.setAttribute("messages", "Contraseña no válida");	
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/login.jsp");
 			view.forward(request, response);
+			doGet(request, response);
 		}
 		
 	}

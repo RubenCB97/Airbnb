@@ -19,6 +19,9 @@
           <input
             class="input"
             type="text"
+            pattern="[A-Za-z]{1,15}"
+            title="Debe contener solo letras"
+            required
             name="username"
             id="user"
             placeholder="Usuario"
@@ -27,7 +30,7 @@
           <input
             class="input"
             type="password"
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            pattern="^(?=.[A-Z])(?=.[!@#$&])(?=.[0-9])(?=.*[a-z]).{8,}$"
             title="Debe contener 8 dígitos entre los que se incluye un número, una mayúscula y una minúscula"
             required
             name="password"
