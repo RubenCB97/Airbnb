@@ -14,12 +14,12 @@
     <div class="register">
       <div class="login-card">
         <h1>Registro</h1>
-        <form action="login.html">
+        <form method="POST" action="Register">
           <p>Usuario</p>
           <input
             class="input"
             type="text"
-            name="user"
+            name="username"
             id="user"
             placeholder="Usuario"
           />
@@ -30,20 +30,23 @@
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Debe contener 8 dígitos entre los que se incluye un número, una mayúscula y una minúscula"
             required
-            name="pass"
+            name="password"
             id="pass"
             placeholder="Contraseña"
           />
           <p>Email</p>
           <input
             class="input"
-            type="text"
+            type="email"
+            pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}"
             name="email"
+            required
             id="email"
             placeholder="Email"
           />
           <input type="submit" value="Registrarse" />
         </form>
+       <p class="error">${messages}</p>
       </div>
     </div>
   </body>
