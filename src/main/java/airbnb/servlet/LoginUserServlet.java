@@ -86,7 +86,6 @@ public class LoginUserServlet extends HttpServlet {
 				request.setAttribute("messages", "Usuario no válido");
 			else
 				request.setAttribute("messages", "Contraseña no válida");	
-		
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/login.jsp");
 			view.forward(request, response);
 		}
