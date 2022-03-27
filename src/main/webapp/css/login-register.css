@@ -35,6 +35,13 @@ h1 {
   font-size: 22px;
 }
 
+.p.error {   
+    color: red;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+
 .login-card p,
 .RegisterUser p {
   margin: 0;
@@ -84,39 +91,6 @@ h1 {
 .login-card a:hover {
   color: #000;
 }
-/*Register*/
-
-/* .RegisterUser {
-  width: 320px;
-  height: 450px;
-  background: white;
-  color: #000;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  padding: 70px 30px;
-  border-radius: 30px;
-  box-shadow: -16px 20px 0px -6px #014731;
-} */
-
-/* .RegisterUser input[type='submit'] {
-  border: none;
-  outline: none;
-  height: 50px;
-  background: rgb (34 255 184);
-  color: #000;
-  font-size: 18px;
-  border-radius: 20px;
-  margin-top: 20px;
-} */
-
-/* .RegisterUser input[type='submit']:hover {
-  cursor: pointer;
-  background: #00ffae;
-  color: #000;
-} */
 
 /*Responsive*/
 @media (max-width: 760px) {

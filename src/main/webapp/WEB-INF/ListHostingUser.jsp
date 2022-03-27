@@ -4,7 +4,7 @@
 <html id="list">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/stylesheet.css"   />
+		<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/stylesheet.css"/>
 		<title>List of Hostings</title>
 	</head>
 	<body>

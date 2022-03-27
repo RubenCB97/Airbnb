@@ -7,14 +7,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login-register.css" />
+    <link rel="stylesheet" href="css/login-register.css" />
   </head>
 
   <body>
     <div class="login">
       <div class="login-card">
         <h1>Inicia sesión</h1>
-        <p>${messages}</p>
         <form method="POST" action="LoginUserServlet">
           <p>Usuario</p>
           <input
@@ -34,6 +33,8 @@
           />
           <input type="submit" value="Ingresar" />
           </form>
+          
+          <p class="error">${messages}</p>
           <a href="ListHostingServlet.do">Registrarse</a><br />
         
       </div>
