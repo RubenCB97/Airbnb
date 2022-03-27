@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 /**
  * Servlet implementation class LoginUserServlet
  */
-@WebServlet (urlPatterns = { "/LoginServlet.do" })
+@WebServlet (urlPatterns = { "/LoginUserServlet" })
 public class LoginUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());   
@@ -89,7 +89,7 @@ public class LoginUserServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/login.jsp");
 			view.forward(request, response);
 		}
-		doGet(request, response);
+		
 	}
 
 }

@@ -10,6 +10,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class RegisterUserServlet
  */
+@WebServlet (urlPatterns = { "/RegisterUserServlet" })
 public class RegisterUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
