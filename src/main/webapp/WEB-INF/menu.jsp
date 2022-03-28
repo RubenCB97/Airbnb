@@ -13,17 +13,20 @@
   <body>
    <header class="header">
       <div class="menu">
+      
         <a href="MainWeb" id="logo">WATERBNB</a>
         <nav class="navigation">
           <ul>
             <li><a href="MainWeb">Inicio</a></li>
             <li><a href="./location.html">Localización</a></li>
-            <li><a href="#">Perfil</a>
-            	<ul>
-            		<li><a class=desp href="Profile">Editar Perfil</a></li>
-            		<li><a class=desp href="#">Mis Alojamientos</a></li>
-            	</ul>
+          	
+          	<li><div ${visibility_profile}><a href="#">Perfil</a></div>
+         			<ul>
+	            		<li><a class=desp href="Profile">Editar Perfil</a></li>
+	            		<li><a class=desp href="#">Mis Alojamientos</a></li>            	
+	            	</ul>
             </li>
+            <li><div ${visibility_login}><a href="Login">Login</a></div>
             <li><a href="Logout">Salir</a></li>
           </ul>
         </nav>

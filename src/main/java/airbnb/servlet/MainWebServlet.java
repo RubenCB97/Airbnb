@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import es.unex.pi.model.User;
+
 /**
  * Servlet implementation class MainWebServlet
  */
@@ -34,6 +36,17 @@ public class MainWebServlet extends HttpServlet {
 		logger.info("MainWebServlet-GET");
 
 		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		
+		String visibility_profile = "visibility: hidden";
+		String visibility_login = "visibility: visible";
+		if (user != null) {
+			visibility_profile = "visibility: visible";
+			visibility_login = "visibility: hidden";
+		}
+		request.setAttribute("visibility_profile", visibility_profile);
+		request.setAttribute("visibility_login", visibility_login);
+		
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/mainweb.jsp");
 		view.forward(request, response);	

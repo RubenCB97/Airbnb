@@ -40,6 +40,16 @@ public class ProfileServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		
+		
+		String visibility_profile = "visibility: hidden";
+		String visibility_login = "visibility: visible";
+		if (user != null) {
+			visibility_profile = "visibility: visible";
+			visibility_login = "visibility: hidden";
+		}
+		request.setAttribute("visibility_profile", visibility_profile);
+		request.setAttribute("visibility_login", visibility_login);
+		
 		request.setAttribute("name", user.getUsername());
 		request.setAttribute("email", user.getEmail());
 		
