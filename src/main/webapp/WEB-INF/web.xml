@@ -4,67 +4,6 @@
   <welcome-file-list>
     <welcome-file>MainWebServlet</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>LoginUserServlet</display-name>
-    <servlet-name>LoginUserServlet</servlet-name>
-    <servlet-class>airbnb.servlet.LoginUserServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LoginUserServlet</servlet-name>
-    <url-pattern>/Login</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>RegisterUserServlet</display-name>
-    <servlet-name>RegisterUserServlet</servlet-name>
-    <servlet-class>airbnb.servlet.RegisterUserServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RegisterUserServlet</servlet-name>
-    <url-pattern>/Register</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>LogoutServlet</display-name>
-    <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>airbnb.servlet.LogoutServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/Logout</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>MainWebServlet</display-name>
-    <servlet-name>MainWebServlet</servlet-name>
-    <servlet-class>airbnb.servlet.MainWebServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MainWebServlet</servlet-name>
-    <url-pattern>/MainWeb</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ProfileServlet</display-name>
-    <servlet-name>ProfileServlet</servlet-name>
-    <servlet-class>airbnb.servlet.ProfileServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ProfileServlet</servlet-name>
-    <url-pattern>/Profile</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DeleteProfileServlet</display-name>
-    <servlet-name>DeleteProfileServlet</servlet-name>
-    <servlet-class>airbnb.servlet.DeleteProfileServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DeleteProfileServlet</servlet-name>
-    <url-pattern>/Delete</url-pattern>
-  </servlet-mapping>
-
   <filter>
     <display-name>LoginFilter</display-name>
     <filter-name>LoginFilter</filter-name>
@@ -72,6 +11,16 @@
   </filter>
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
-    <url-pattern>/LoginFilter</url-pattern>
+    <url-pattern>/waterbnb/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HostServlet</display-name>
+    <servlet-name>HostServlet</servlet-name>
+    <servlet-class>airbnb.servlet.HostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HostServlet</servlet-name>
+    <url-pattern>/HostServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

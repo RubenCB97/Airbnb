@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet (urlPatterns = { "/LogoutServlet" })
+@WebServlet (urlPatterns = { "/waterbnb/LogoutServlet" })
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,7 +31,7 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		
 		if (session != null) session.invalidate();
-		response.sendRedirect(request.getContextPath()+"/Login");
+		response.sendRedirect(request.getContextPath()+"/LoginUserServlet");
 	
 	}
 

@@ -16,9 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebFilter(dispatcherTypes = {DispatcherType.REQUEST}, urlPatterns = {"/log/*"})
-
-
+@WebFilter(dispatcherTypes = {DispatcherType.REQUEST}, urlPatterns = {"/waterbnb/*"})
 public class LoginFilter implements Filter{
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
 
@@ -30,7 +28,6 @@ public class LoginFilter implements Filter{
 
 
 	}
-
 	
 	public void doFilter(ServletRequest request,
 						ServletResponse response,
@@ -44,7 +41,7 @@ public class LoginFilter implements Filter{
 		HttpSession session = ((HttpServletRequest) request).getSession(true);
 		
 		if (session.getAttribute("user") == null) { //Usuario debe iniciar sesion para acceder
-			res.sendRedirect(req.getContextPath() + "/LoginServlet");
+			res.sendRedirect(req.getContextPath() + "/LoginUserServlet");
 		} 
 		else { //Usuario ya ha iniciado sesion y puede acceder
 			chain.doFilter(request, response);

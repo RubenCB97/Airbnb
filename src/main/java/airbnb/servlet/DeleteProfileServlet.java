@@ -18,7 +18,7 @@ import es.unex.pi.model.User;
 /**
  * Servlet implementation class DeleteProfileServlet
  */
-@WebServlet (urlPatterns = { "/DeleteProfileServlet" })
+@WebServlet (urlPatterns = { "/waterbnb/DeleteProfileServlet" })
 
 public class DeleteProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -59,7 +59,7 @@ public class DeleteProfileServlet extends HttpServlet {
 		logger.info("id "+user.getId());
 		userDAO.delete(user.getId());
 		session.removeAttribute("user");
-		response.sendRedirect("MainWeb");
+		response.sendRedirect("../MainWebServlet");
 	}
 
 }

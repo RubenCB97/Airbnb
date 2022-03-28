@@ -14,7 +14,7 @@
     <div class="login">
       <div class="login-card">
         <h1>Inicia sesión</h1>
-        <form method="POST" action="Login">
+        <form method="POST" action="LoginUserServlet">
           <p>Usuario</p>
           <input
             class="input"
@@ -35,7 +35,7 @@
           </form>
           
           <p class="error">${messages}</p>
-          <a href="Register">Registrarse</a><br />
+          <a href="RegisterUserServlet">Registrarse</a><br />
         
       </div>
     </div>

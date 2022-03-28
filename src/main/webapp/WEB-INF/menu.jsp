@@ -14,20 +14,19 @@
    <header class="header">
       <div class="menu">
       
-        <a href="MainWeb" id="logo">WATERBNB</a>
+        <a href="MainWebServlet" id="logo">WATERBNB</a>
         <nav class="navigation">
           <ul>
-            <li><a href="MainWeb">Inicio</a></li>
-            <li><a href="./location.html">Localización</a></li>
-          	
+            <li><a href="MainWebServlet">Inicio</a></li>
+            <li><a href="waterbnb/HostServlet">Localización</a></li>
+            <li><div ${visibility_profile}><a class=desp href="waterbnb/HostServlet">Mis Alojamientos</a></div></li>  
           	<li><div ${visibility_profile}><a href="#">Perfil</a></div>
-         			<ul>
-	            		<li><a class=desp href="Profile">Editar Perfil</a></li>
-	            		<li><a class=desp href="#">Mis Alojamientos</a></li>            	
-	            	</ul>
+       			<ul>
+           			<li><a class=desp href="waterbnb/ProfileServlet">Editar Perfil</a></li>          	
+           		</ul>
             </li>
-            <li><div ${visibility_login}><a href="Login">Login</a></div>
-            <li><a href="Logout">Salir</a></li>
+            <li><div ${visibility_login}><a href="waterbnb/LoginUserServlet">Login</a></div>
+            <li><a href="waterbnb/LogoutServlet">Salir</a></li>
           </ul>
         </nav>
       </div>

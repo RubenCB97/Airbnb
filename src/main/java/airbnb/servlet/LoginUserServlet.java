@@ -41,7 +41,7 @@ public class LoginUserServlet extends HttpServlet {
 		
 		if (session.getAttribute("user")!=null) {
 			logger.info("entrando");
-			response.sendRedirect("MainWeb");
+			response.sendRedirect("MainWebServlet");
 		}
 		else {
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/login.jsp");
@@ -75,7 +75,7 @@ public class LoginUserServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("user", user);
-			response.sendRedirect("MainWeb");
+			response.sendRedirect("MainWebServlet");
 		}
 		
 		else 

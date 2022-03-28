@@ -14,7 +14,7 @@
     <div class="register">
       <div class="login-card">
         <h1>Registro</h1>
-        <form method="POST" action="Register">
+        <form method="POST" action="RegisterUserServlet">
           <p>Usuario</p>
           <input
             class="input"

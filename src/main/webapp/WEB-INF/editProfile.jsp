@@ -19,7 +19,7 @@
   		<p>${messages}</p>
   	 	<div class="tittle"><b>${name} - Editar perfil</b></div>
   	 	 <p>Email actual: ${email}</p>
-  	 	 <form method="POST" action="Profile">
+  	 	 <form method="POST" action="ProfileServlet">
   	 	 
           <p>Contraseña actual</p>
           <input
@@ -54,8 +54,8 @@
         </form>
        
         <div>
-        	<form action="Delete" method="post">
-    		<button type="submit" class="btn-link">Eliminar Cuenta</button>
+        	<form action="DeleteProfileServlet" method="post">
+    		<button type="submit" class="btn-delete">Eliminar Cuenta</button>
 	</form>
         </div>
   	</div>
