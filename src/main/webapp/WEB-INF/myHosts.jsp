@@ -17,27 +17,36 @@
          <%@include file="/WEB-INF/menu.jsp" %>
 
     <main class="main">
-     <c:forEach var="host" items="${hostlist}">
+     <c:forEach var="host" items="${hostlistMap}">
         <div class="container">
-        <h2>${host.title}</h2>
+        <h2>${host.key.title}</h2>
             <div class="row">
             
                 <div class="column">
-                <img src="./images/House1.jpg" alt="TestHouse" />
-                <img src="./images/piscina-lujo.jpg" alt="TestHouse" />
+                <img src="${pageContext.request.contextPath}/images/House1.jpg" alt="TestHouse" />
+                <img src="${pageContext.request.contextPath}/images/piscina-lujo.jpg" alt="TestHouse" />
                 </div>
                 <div class="column">
-                <img src="./images/piscina-lujo2.jpg" alt="TestHouse" />
-                <img src="./images/piscina-lujo3.jpg" alt="TestHouse" />
+                <img src="${pageContext.request.contextPath}/images/piscina-lujo2.jpg" alt="TestHouse" />
+                <img src="${pageContext.request.contextPath}/images/piscina-lujo3.jpg" alt="TestHouse" />
                 </div>
                 <div class="column">
-                <p>${host.description}</p>
-                <p>${host.location}</p>
-                <p>Tlf: ${host.telephone}</p>
-                <p>Correo de contacto: ${host.contactEmail}</p>
-                
-                <p>Categoria: ${host.contactEmail}</p>
-                <p>Estado: ${host.available}</p>
+                <p>${host.key.description}</p>
+                <p>${host.key.location}</p>
+                <p>Tlf: ${host.key.telephone}</p>
+                <p>Correo de contacto: ${host.key.contactEmail}</p>
+  				<c:forEach var="cat" items="${host.value}">
+                		<p>Categoria: ${cat}</p>	
+                </c:forEach> 
+                <p>Likes: ${host.key.likes}</p>
+                <c:choose>
+                	<c:when test="${Hosting.available=='1'}">
+		    			Estado: Booked
+		    		</c:when>
+		    		<c:otherwise>
+		    			Estado: Available
+		    		</c:otherwise>	
+		    	</c:choose>
 	                <div>
 	                    <form action="DeleteProfileServlet" method="post">
 	                    <button type="submit" class="btn-delete">Editar</button>

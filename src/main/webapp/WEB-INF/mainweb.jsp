@@ -20,12 +20,9 @@
       <div class="category">
         <select required name="categoria" class="form-control">
           <option value="">Elige categoria</option>
-          <option value="CasaDeLujo">Casa de lujo</option>
-          <option value="CasaDeDomo">Casa de domo</option>
-          <option value="CasasDeCampo">Casa de campo</option>
-          <option value="CasasDePlaya">Casa de playa</option>
-          <option value="Castillo">Castillo</option>
-          <option value="Cabaña">Cabaña</option>
+          <c:forEach var="cat" items="${category}">
+          <option value="${cat.name}">${cat.name}</option> 
+        </c:forEach>
         </select>
         <input
           type="search"

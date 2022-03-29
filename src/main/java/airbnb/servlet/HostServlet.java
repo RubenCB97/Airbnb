@@ -11,12 +11,20 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
+import es.unex.pi.dao.CategoryDAO;
+import es.unex.pi.dao.HostingCategoriesDAO;
 import es.unex.pi.dao.HostingDAO;
+import es.unex.pi.dao.JDBCCategoryDAOImpl;
+import es.unex.pi.dao.JDBCHostingCategoriesDAOImpl;
 import es.unex.pi.dao.JDBCHostingDAOImpl;
+import es.unex.pi.model.Category;
 import es.unex.pi.model.Hosting;
+import es.unex.pi.model.HostingCategories;
 import es.unex.pi.model.User;
 
 /**
@@ -52,17 +60,31 @@ public class HostServlet extends HttpServlet {
 		HostingDAO hostingDAO = new JDBCHostingDAOImpl();
 		hostingDAO.setConnection(conn);
 		
-		List<Hosting> Hosts = hostingDAO.getAll();
-		List<Hosting> userHosts = new ArrayList<Hosting>();
+		CategoryDAO categoryDAO = new JDBCCategoryDAOImpl();
+		categoryDAO.setConnection(conn);
+		HostingCategoriesDAO HostingsCategoriesDAO = new JDBCHostingCategoriesDAOImpl();
+		HostingsCategoriesDAO.setConnection(conn);
+		
 		long idUser = user.getId();
+
+
+		List<String> caux = new ArrayList<String>();
+		Map<Hosting,List<String>> userHostingMap = new HashMap<Hosting,List<String>>();
+		
+		List<Hosting> Hosts = hostingDAO.getAllByUser(idUser);
+		
 		
 		for(Hosting hs : Hosts) {
-			if(hs.getIdu() == idUser) {
-				userHosts.add(hs);
-			}
+			List<HostingCategories> HC = HostingsCategoriesDAO.getAllByHosting(hs.getId());
+			for(HostingCategories hc : HC) {
+				caux.add(categoryDAO.get(hc.getIdct()).getName());
+				logger.info("NOMBREE: "+caux.get(0));
 
+			}
+			userHostingMap.put(hs, caux);	
 		}
-		request.setAttribute("hostlist", userHosts);
+	
+		request.setAttribute("hostlistMap", userHostingMap);
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/myHosts.jsp");
 		view.forward(request, response);
 	

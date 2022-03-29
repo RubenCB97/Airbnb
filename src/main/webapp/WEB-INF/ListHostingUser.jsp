@@ -32,7 +32,7 @@
 						<td>${Hosting.first.telephone}</td>
 						<td>${Hosting.first.likes}</td>
 						<td>${Hosting.first.location}</td>
-						<td>${Hosting.first.contactEmail}</td>
+						<td>${Hosting.first.contactiEmail}</td>
 						<td>
 						<c:choose>
 		    				<c:when test="${Hosting.first.available=='1'}">

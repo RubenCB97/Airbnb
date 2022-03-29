@@ -102,7 +102,6 @@ public class ListHostingServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/ListHostingUser.jsp");
 		view.forward(request,response);
 		
-	
 	}
 
 	

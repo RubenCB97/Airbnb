@@ -9,8 +9,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.util.List;
 import java.util.logging.Logger;
 
+import es.unex.pi.dao.CategoryDAO;
+import es.unex.pi.dao.JDBCCategoryDAOImpl;
+import es.unex.pi.model.Category;
+import es.unex.pi.model.Hosting;
 import es.unex.pi.model.User;
 
 /**
@@ -37,6 +43,11 @@ public class MainWebServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
+		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
+		CategoryDAO categoryDAO = new JDBCCategoryDAOImpl();
+		categoryDAO.setConnection(conn);
+		List<Category> category = categoryDAO.getAll();
+
 		
 		String visibility_profile = "visibility: hidden";
 		String visibility_login = "visibility: visible";
@@ -46,7 +57,8 @@ public class MainWebServlet extends HttpServlet {
 		}
 		request.setAttribute("visibility_profile", visibility_profile);
 		request.setAttribute("visibility_login", visibility_login);
-		
+		request.setAttribute("category", category);
+
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/mainweb.jsp");
 		view.forward(request, response);	

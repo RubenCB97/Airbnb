@@ -13,14 +13,4 @@
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/waterbnb/*</url-pattern>
   </filter-mapping>
-  <servlet>
-    <description></description>
-    <display-name>HostServlet</display-name>
-    <servlet-name>HostServlet</servlet-name>
-    <servlet-class>airbnb.servlet.HostServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HostServlet</servlet-name>
-    <url-pattern>/HostServlet</url-pattern>
-  </servlet-mapping>
 </web-app>
