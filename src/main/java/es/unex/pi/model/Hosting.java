@@ -11,6 +11,7 @@ public class Hosting {
 	private int likes;
 	private int available;
 	private int idu;
+	private float price;
 	
 	public long getId() {
 		return id;
@@ -66,8 +67,10 @@ public class Hosting {
 	public void setIdu(int idu) {
 		this.idu = idu;
 	}
-
-
-	
-	
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
 }

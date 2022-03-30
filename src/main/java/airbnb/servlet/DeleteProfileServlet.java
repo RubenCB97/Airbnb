@@ -18,48 +18,50 @@ import es.unex.pi.model.User;
 /**
  * Servlet implementation class DeleteProfileServlet
  */
-@WebServlet (urlPatterns = { "/waterbnb/DeleteProfileServlet" })
+@WebServlet(urlPatterns = { "/waterbnb/DeleteProfileServlet" })
 
 public class DeleteProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());   
-   
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteProfileServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public DeleteProfileServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		logger.info("DeleteProfileServlet-GET");
 
 	}
-	
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		logger.info("DeleteProfileServlet-POST");
 
-		//Conexion con BD
+		// Conexion con BD
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		UserDAO userDAO = new JDBCUserDAOImpl();
 		userDAO.setConnection(conn);
-		
-		
-		//Recuperamos session
+
+		// Recuperamos session
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		logger.info("id "+user.getId());
+		logger.info("id " + user.getId());
 		userDAO.delete(user.getId());
 		session.removeAttribute("user");
-		response.sendRedirect("../MainWebServlet");
+		response.sendRedirect("HostServlet");
 	}
 
 }

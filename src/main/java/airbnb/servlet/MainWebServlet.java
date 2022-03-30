@@ -22,23 +22,24 @@ import es.unex.pi.model.User;
 /**
  * Servlet implementation class MainWebServlet
  */
-@WebServlet (urlPatterns = { "/MainWebServlet" })
+@WebServlet(urlPatterns = { "/MainWebServlet" })
 public class MainWebServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());   
-
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MainWebServlet() {
-        super();
-    }
+	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MainWebServlet() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		logger.info("MainWebServlet-GET");
 
 		HttpSession session = request.getSession();
@@ -48,7 +49,6 @@ public class MainWebServlet extends HttpServlet {
 		categoryDAO.setConnection(conn);
 		List<Category> category = categoryDAO.getAll();
 
-		
 		String visibility_profile = "visibility: hidden";
 		String visibility_login = "visibility: visible";
 		if (user != null) {
@@ -59,15 +59,16 @@ public class MainWebServlet extends HttpServlet {
 		request.setAttribute("visibility_login", visibility_login);
 		request.setAttribute("category", category);
 
-		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/mainweb.jsp");
-		view.forward(request, response);	
+		view.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		logger.info("MainWebServlet-POST");
 		doGet(request, response);
 	}

@@ -26,7 +26,7 @@ public class Triplet<F, S, T> {
 	public S getSecond() {
 		return second;
 	}
-	
+
 	public T getThird() {
 		return third;
 	}

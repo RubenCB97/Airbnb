@@ -36,12 +36,9 @@
       <div class="container">
         <div class="card">
           <a href="detail.html"
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/House1.jpg"
-              alt="TestHouse"
-              />
-            </a>
+            ><img class="card-image"
+					src="${pageContext.request.contextPath}/images/House1.jpg"
+					alt="TestHouse" /> </a>
           <div class="card-text">
             <div class="title">
               <span>Villas Canava II, piscina privada, Santorini</span>

@@ -58,9 +58,6 @@ img {
   margin-top: 5px;
 }
 
-input[type='radio'] {
-  display: none;
-}
 
 label {
   color: grey;
