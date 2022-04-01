@@ -40,6 +40,7 @@ public class RegisterUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		logger.info("RegisterUserServlet-GET");
+		request.setCharacterEncoding("UTF-8");
 
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/register.jsp");
 		view.forward(request, response);

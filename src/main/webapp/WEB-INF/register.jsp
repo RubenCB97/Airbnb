@@ -23,7 +23,7 @@
 					id="user" placeholder="Usuario" />
 				<p>Contraseña</p>
 				<input class="input" type="password"
-					pattern="^(?=.[A-Z])(?=.[!@#$&])(?=.[0-9])(?=.*[a-z]).{8,}$"
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 					title="Debe contener 8 dígitos entre los que se incluye un número, una mayúscula y una minúscula"
 					required name="password" id="pass" placeholder="Contraseña" />
 				<p>Email</p>

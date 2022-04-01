@@ -46,11 +46,21 @@
 						<p>${host.key.description}</p>
 						<p>${host.key.location}</p>
 						<p>Tlf: ${host.key.telephone}</p>
-						<p>Precio: ${host.key.price}€</p>
+						<p>${host.key.price}€/noche</p>
 						<p>Correo de contacto: ${host.key.contactEmail}</p>
+						<p>Categoria:
 						<c:forEach var="cat" items="${host.value}">
-							<p>Categoria: ${cat}</p>
+							 ${cat}
 						</c:forEach>
+						<p>Servicios extra:
+						<c:forEach var="serv" items="${userServicesMap}">
+							<c:if test ="${host.key.id==serv.key.id}">
+								<c:forEach var="se" items="${serv.value}">
+									${se}
+								</c:forEach>
+							</c:if>
+						</c:forEach>  
+						</p>
 						<p>Likes: ${host.key.likes}</p>
 						<c:choose>
 							<c:when test="${host.key.available=='1'}">

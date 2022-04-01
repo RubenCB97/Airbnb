@@ -14,7 +14,9 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import es.unex.pi.dao.CategoryDAO;
+import es.unex.pi.dao.HostingDAO;
 import es.unex.pi.dao.JDBCCategoryDAOImpl;
+import es.unex.pi.dao.JDBCHostingDAOImpl;
 import es.unex.pi.model.Category;
 import es.unex.pi.model.Hosting;
 import es.unex.pi.model.User;
@@ -41,12 +43,18 @@ public class MainWebServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		logger.info("MainWebServlet-GET");
+		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
+		
 		CategoryDAO categoryDAO = new JDBCCategoryDAOImpl();
 		categoryDAO.setConnection(conn);
+		HostingDAO hostingDAO = new JDBCHostingDAOImpl();
+		hostingDAO.setConnection(conn);
+		
+		List<Hosting> allHost = hostingDAO.getAll();
 		List<Category> category = categoryDAO.getAll();
 
 		String visibility_profile = "visibility: hidden";
@@ -58,7 +66,8 @@ public class MainWebServlet extends HttpServlet {
 		request.setAttribute("visibility_profile", visibility_profile);
 		request.setAttribute("visibility_login", visibility_login);
 		request.setAttribute("category", category);
-
+		request.setAttribute("allHost", allHost);
+		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/mainweb.jsp");
 		view.forward(request, response);
 	}

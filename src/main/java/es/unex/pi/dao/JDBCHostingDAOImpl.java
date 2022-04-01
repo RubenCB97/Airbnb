@@ -38,7 +38,7 @@ public class JDBCHostingDAOImpl implements HostingDAO {
 			hosting.setPrice(rs.getFloat("price"));
 
 			logger.info("fetching hostings: "+hosting.getId()+" "+hosting.getTitle()+" "+hosting.getDescription()+ " " + hosting.getTelephone() + " " + hosting.getIdu() 
-						+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail());
+						+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail() + " " + hosting.getPrice());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,7 +71,7 @@ public class JDBCHostingDAOImpl implements HostingDAO {
 				
 				hostings.add(hosting);
 				logger.info("fetching hostings: "+hosting.getId()+" "+hosting.getTitle()+" "+hosting.getDescription()+ " " + hosting.getTelephone() + " " + hosting.getIdu() 
-				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail()+ " " + hosting.getPrice());
+				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail() + " " + hosting.getPrice());
 								
 			}
 
@@ -105,11 +105,11 @@ public class JDBCHostingDAOImpl implements HostingDAO {
 				hosting.setAvailable(rs.getInt("available"));
 				hosting.setContactEmail(rs.getString("contactemail"));
 				hosting.setPrice(rs.getFloat("price"));
-
+				
 				hostings.add(hosting);
 				
 				logger.info("fetching hostings: "+hosting.getId()+" "+hosting.getTitle()+" "+hosting.getDescription()+ " " + hosting.getTelephone() + " " + hosting.getIdu() 
-				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail()+ " " + hosting.getPrice());
+				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail() + " " + hosting.getPrice());
 				
 			}
 
@@ -148,7 +148,7 @@ public class JDBCHostingDAOImpl implements HostingDAO {
 				hostings.add(hosting);
 				
 				logger.info("fetching hostings: "+hosting.getId()+" "+hosting.getTitle()+" "+hosting.getDescription()+ " " + hosting.getTelephone() + " " + hosting.getIdu() 
-				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail()+ " " + hosting.getPrice());
+				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail() + " " + hosting.getPrice());
 				
 			}
 
@@ -181,12 +181,11 @@ public class JDBCHostingDAOImpl implements HostingDAO {
 				hosting.setLocation(rs.getString("location"));
 				hosting.setAvailable(rs.getInt("available"));
 				hosting.setContactEmail(rs.getString("contactemail"));
-				hosting.setPrice(rs.getFloat("price"));
 
 				hostings.add(hosting);
 				
 				logger.info("fetching hostings: "+hosting.getId()+" "+hosting.getTitle()+" "+hosting.getDescription()+ " " + hosting.getTelephone() + " " + hosting.getIdu() 
-				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail()+ " " + hosting.getPrice());
+				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail() + " " + hosting.getPrice());
 				
 			}
 
@@ -221,11 +220,11 @@ public class JDBCHostingDAOImpl implements HostingDAO {
 				hosting.setAvailable(rs.getInt("available"));
 				hosting.setContactEmail(rs.getString("contactemail"));
 				hosting.setPrice(rs.getFloat("price"));
-
+				
 				hostings.add(hosting);
 				
 				logger.info("fetching hostings: "+hosting.getId()+" "+hosting.getTitle()+" "+hosting.getDescription()+ " " + hosting.getTelephone() + " " + hosting.getIdu() 
-				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail()+ " " + hosting.getPrice());
+				+ " " + hosting.getLikes() + " " + hosting.getLocation() + " " + hosting.getAvailable() + " " + hosting.getContactEmail() + " " + hosting.getPrice());
 				
 			}
 
@@ -265,7 +264,8 @@ public class JDBCHostingDAOImpl implements HostingDAO {
 				stmt = conn.createStatement();
 				stmt.executeUpdate("INSERT INTO hosting (title,description,telephone,idu,likes,location,available,contactemail,price) VALUES('"
 									+hosting.getTitle()+"','"+hosting.getDescription()+"','" + hosting.getTelephone() + "'," 
-									+ hosting.getIdu() + "," + hosting.getLikes()+",'"+ hosting.getLocation() +"',"+ hosting.getAvailable() +",'" + hosting.getContactEmail() +"',"+ hosting.getPrice() + ")");
+									+ hosting.getIdu() + "," + hosting.getLikes()+",'"+ hosting.getLocation() +"',"+ hosting.getAvailable() +",'" + 
+									hosting.getContactEmail() + "'," + hosting.getPrice() + ")");
 				
 								
 			} catch (SQLException e) {
@@ -305,8 +305,8 @@ public class JDBCHostingDAOImpl implements HostingDAO {
 				+", likes="+hosting.getLikes()
 				+", location='"+hosting.getLocation()
 				+"', available="+hosting.getAvailable()
-				+", contactemail='"+hosting.getContactEmail()	
-				+"', price="+hosting.getPrice()
+				+", contactemail='"+hosting.getContactEmail()
+				+"', price="+hosting.getPrice()	
 				+" WHERE id = "+hosting.getId());
 				logger.info("updating hosting: "+hosting.getId()+" "+hosting.getTitle()+" "+hosting.getDescription());
 						

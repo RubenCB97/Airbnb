@@ -13,6 +13,7 @@ public class Hosting {
 	private int idu;
 	private float price;
 	
+	
 	public long getId() {
 		return id;
 	}

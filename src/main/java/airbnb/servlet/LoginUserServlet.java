@@ -2,6 +2,7 @@ package airbnb.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -58,8 +59,14 @@ public class LoginUserServlet extends HttpServlet {
 		
 		//Conexion con BD
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
+		try {
+			conn.createStatement().execute("PRAGMA foreign_keys = ON");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		UserDAO userDAO = new JDBCUserDAOImpl();
 		userDAO.setConnection(conn);
+		
 
 		//Valores del login
 		String name = request.getParameter("username");

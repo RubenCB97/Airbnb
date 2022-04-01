@@ -30,211 +30,36 @@
           name="q"
           aria-label="Search through site content"
         />
-
-        <button id="button-search">Buscar</button>
+	<button id="button-search">Filtrar</button>
       </div>
+      
+      
       <div class="container">
+      
+       <c:forEach var="host" items="${allHost}">
         <div class="card">
-          <a href="detail.html"
+          <a href="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}"
             ><img class="card-image"
 					src="${pageContext.request.contextPath}/images/House1.jpg"
 					alt="TestHouse" /> </a>
           <div class="card-text">
-            <div class="title">
-              <span>Villas Canava II, piscina privada, Santorini</span>
+            <div class="titles">
+               <p>${host.title}</p>
             </div>
-            <div class="subtitle">
-              <span>A 920 kilómetros de distancia</span>
+            <div class="subtitles">
+              	<span>${host.location}</span>
+            </div>
+            <div class="subtitles">
+            	<span>${host.price}</span>
+            </div>
+            <div class="subtitles">
+            	 <span>Likes: ${host.likes}</span>
+            	
             </div>
           </div>
         </div>
+        </c:forEach>
 
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/house16.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Piscina climatizada de la villa Minoas Sea</span>
-            </div>
-            <div class="subtitle">
-              <span>A 90 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/House4.jpeg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Vista a la playa aparte</span>
-            </div>
-            <div class="subtitle">
-              <span>A 145 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/House5.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Una casa única en una ubicación muy especial</span>
-            </div>
-            <div class="subtitle">
-              <span>A 832 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/house10.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Casa menorquina frente al mar</span>
-            </div>
-            <div class="subtitle">
-              <span>A 58 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/house11.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Cavernas modernas</span>
-            </div>
-            <div class="subtitle">
-              <span>A 92 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/house12.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Villamaravilla</span>
-            </div>
-            <div class="subtitle">
-              <span>A 325 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/house13.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Villa con piscina</span>
-            </div>
-            <div class="subtitle">
-              <span>A 570 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/house14.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Mansión inglesa</span>
-            </div>
-            <div class="subtitle">
-              <span>A 126 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/house15.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Castillo en Villamonte</span>
-            </div>
-            <div class="subtitle">
-              <span>A 432 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/House8.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Cabaña en la noche</span>
-            </div>
-            <div class="subtitle">
-              <span>A 712 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <a
-            ><img
-              class="card-image"
-              src="${pageContext.request.contextPath}/images/Airbnb-Cabins-Japan.jpg"
-              alt="TestHouse"
-          /></a>
-          <div class="card-text">
-            <div class="title">
-              <span>Cabaña salvaje</span>
-            </div>
-            <div class="subtitle">
-              <span>A 31 kilómetros de distancia</span>
-            </div>
-          </div>
-        </div>
       </div>
     </main>
   </body>

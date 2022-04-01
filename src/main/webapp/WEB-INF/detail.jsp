@@ -20,77 +20,59 @@
 
 	<main class="main">
 		<div class="container">
-			<h2>Villas Canava II, piscina privada, Santorini</h2>
-
-			<div class="row">
+			<h2>
+				Titulo: ${host.title}
+			</h2>
+				<div class="row">
 				<div class="column">
-					<img src="./images/House1.jpg" alt="TestHouse" /> <img
-						src="./images/piscina-lujo.jpg" alt="TestHouse" />
+					<img src="${pageContext.request.contextPath}/images/House1.jpg" alt="TestHouse" /> <img
+						src="${pageContext.request.contextPath}/images/piscina-lujo.jpg" alt="TestHouse" />
 				</div>
 				<div class="column">
-					<img src="./images/piscina-lujo2.jpg" alt="TestHouse" /> <img
-						src="./images/piscina-lujo3.jpg" alt="TestHouse" />
+					<img src="${pageContext.request.contextPath}/images/piscina-lujo2.jpg" alt="TestHouse" /> <img
+						src="${pageContext.request.contextPath}/images/piscina-lujo3.jpg" alt="TestHouse" />
 				</div>
 				<div class="column">
-					<h3>$1.000.000/noche</h3>
-					<p>Preciosa Villa con Piscina Privada. Vista despejada de
-						montañas, valles y mar. Acogedora y confortable villa
-						"Clementina", 2 plantas. Monte Pego, posición elevada, a 8 km del
-						mar. Para uso privado: jardín natural, piscina en forma de riñón
-						(8 x 4 m). Plaza de aparcamiento en el suelo. Supermercado 6 km,
-						restaurante 2 km, playa de arena 8 km. Campo de golf a 12 km,
-						tenis a 5 km.</p>
-					<p>A 920 kilómetros de distancia.</p>
-					<p>Tlf: 666666666</p>
-					<p>Correo de contacto: prueba@gmail.com.</p>
-					<select required name="Categoria" class="form-control">
-						<option value="">Categoria</option>
-						<option value="Categoria1">Categoria1</option>
-						<option value="Categoria2">Categoria2</option>
-						<option value="Categoria3">Categoria3</option>
-					</select><br />
-					<p>
-						Servicios: <input type="checkbox" name="Servicios"
-							value="Servicios" />
+					<h3>${host.price}€/noche </h3>
+					<p>${host.description}</p>
+					<p>${host.location}.</p>
+					<p>Tlf: ${host.telephone}</p>
+					<p>Correo de contacto: ${host.contactEmail}.</p>
+					<p>Categoria:
+						
+					<c:forEach var="cat" items="${categoryList}">
+						${cat.name} 
+    				</c:forEach> 
+					<p>Servicios:
+						<c:forEach var="serv" items="${serviceList}">
+						${serv.name}
+						</c:forEach> 		
 					</p>
-					<p>
-						Fecha de reserva <input type="date" name="Fecha" class="date" />
-					</p>
-					<p>
-						<input type="submit" class="comp" name="Compra" value="Reservar" />
-					</p>
-					<form>
-						<p class="clasificacion">
-							<input id="radio1" type="radio" name="estrellas" value="5" />
-							<!--
-                            -->
-							<label for="radio1">★</label>
-							<!--
-                            -->
-							<input id="radio2" type="radio" name="estrellas" value="4" />
-							<!--
-                            -->
-							<label for="radio2">★</label>
-							<!--
-                            -->
-							<input id="radio3" type="radio" name="estrellas" value="3" />
-							<!--
-                            -->
-							<label for="radio3">★</label>
-							<!--
-                            -->
-							<input id="radio4" type="radio" name="estrellas" value="2" />
-							<!--
-                            -->
-							<label for="radio4">★</label>
-							<!--
-                            -->
-							<input id="radio5" type="radio" name="estrellas" value="1" />
-							<!--
-                            -->
-							<label for="radio5">★</label>
-						</p>
-					</form>
+					<div>
+					<c:choose>
+						<c:when test="${host.available=='1'}">
+    					Estado: Booked
+    				</c:when>
+						<c:otherwise>
+    					Estado: Available
+					</c:otherwise>
+					</c:choose>
+					</div>
+					<div>
+					<p>Likes :${host.likes}</p>
+					</div>
+					<c:choose>
+					<c:when test="${like=='0'}">
+						<form action="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}" method="POST">
+						<input type="submit" value="Dar Like" />   					
+						</form>
+					 </c:when>
+					<c:otherwise>
+    					<form action="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}" method="POST">
+						<input type="submit" value="Quitar Like" />		
+						</form>
+					</c:otherwise>
+					</c:choose>	
 				</div>
 			</div>
 		</div>

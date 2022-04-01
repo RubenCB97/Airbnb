@@ -36,15 +36,25 @@
 						<textarea rows="" cols="" name="description" id="description">Descripcion del alojamiento</textarea>
 
 						<p>Location:</p>
-						<input class="input" type="text" name="location" id="location"/>
+						<input class="input" type="text" name="location" required id="location"/>
 						<p>Tlf:</p>
-						<input class="input" type="tel" name="telephone" id="telephone" />
+						<input class="input" type="tel" name="telephone" required id="telephone" />
 						<p>Precio:</p>
-						<input class="input" type="number" name="price" id="price" placeholder="0€" />
+						<input class="input" type="number" name="price" required id="price" placeholder="0€" />
 						<p>Correo de contacto:</p>
-						<input class="input" type="email" name="contactEmail" id="contactEmail"/>
+						<input class="input" type="email" name="contactEmail" required id="contactEmail"/>
 						<p>Categoria</p>
-						<input type="radio" name="state" id="available" value="0"/> Disponible
+						<c:forEach var="cat" items="${categoryList}">
+							<input id="${cat.name}" type="checkbox" name="categories"  value="${cat.id}"/> 
+							<label for="${cat.name} ">${cat.name}</label> 
+						</c:forEach>
+						<p>Servicios:
+						<c:forEach var="serv" items="${serviceList}">
+							<input id="${serv.name}" type="checkbox" name="services"  value="${serv.id}"/> 
+							<label for="${serv.name} ">${serv.name}</label> 
+						</c:forEach>
+						<p>Estado:</p>
+						<input type="radio" name="state" id="available" checked value="0"/> Disponible
 						<input type="radio" name="state" id="Booked" value="1" /> Ocupado
 						
 						<div>
@@ -52,6 +62,7 @@
 						</div>
 					</div>
 		</form>
+		<p>${menError}</p>
 
 	</main>
 </body>

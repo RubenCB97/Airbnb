@@ -61,7 +61,7 @@ public class DeleteProfileServlet extends HttpServlet {
 		logger.info("id " + user.getId());
 		userDAO.delete(user.getId());
 		session.removeAttribute("user");
-		response.sendRedirect("HostServlet");
+		response.sendRedirect("../LoginUserServlet");
 	}
 
 }

@@ -38,6 +38,7 @@ public class ProfileServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		logger.info("PerfilServlet-GET");
+		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
