@@ -21,9 +21,11 @@
 	<%@include file="/WEB-INF/menu.jsp"%>
 	
 	<main class="main">
-	<button
-		onclick="location.href='${pageContext.request.contextPath}/waterbnb/CreateHostServlet'"
+		<div class="crearHost">
+		<button class="crear"
+		onclick="location.href='${pageContext.request.contextPath}/user/CreateHostServlet'"
 		type="button">Crear Alojamiento</button>
+		</div>
 		<c:forEach var="host" items="${hostlistMap}">
 			<div class="container">
 				<h2>${host.key.title}</h2>
@@ -46,7 +48,7 @@
 						<p>${host.key.description}</p>
 						<p>${host.key.location}</p>
 						<p>Tlf: ${host.key.telephone}</p>
-						<p>${host.key.price}€/noche</p>
+						<p>${host.key.price} €/noche</p>
 						<p>Correo de contacto: ${host.key.contactEmail}</p>
 						<p>Categoria:
 						<c:forEach var="cat" items="${host.value}">
@@ -64,20 +66,20 @@
 						<p>Likes: ${host.key.likes}</p>
 						<c:choose>
 							<c:when test="${host.key.available=='1'}">
-		    			Estado: Reservado
+		    			<h4>Reservado</h4>
 		    		</c:when>
 							<c:otherwise>
-		    			Estado: Disponible
+		    			<h4>Disponible</h4>
 		    		</c:otherwise>
 						</c:choose>
-						<div>
-							<button
-								onclick="location.href='${pageContext.request.contextPath}/waterbnb/EditHostServlet?id=${host.key.id}'"
+						<div class="modificar">
+							<button class="mod"
+								onclick="location.href='${pageContext.request.contextPath}/user/EditHostServlet?id=${host.key.id}'"
 								type="button">Editar</button>
 							<form
-								action="${pageContext.request.contextPath}/waterbnb/DeleteHostServlet?id=${host.key.id}"
+								action="${pageContext.request.contextPath}/user/DeleteHostServlet?id=${host.key.id}"
 								method="POST">
-								<button type="submit" name="deleteHost" value="delete">Delete</button>
+								<button class="mod" type="submit" name="deleteHost" value="delete">Delete</button>
 							</form>
 						</div>
 					</div>

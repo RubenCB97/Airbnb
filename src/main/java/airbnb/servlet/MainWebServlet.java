@@ -21,8 +21,11 @@ import es.unex.pi.dao.CategoryDAO;
 import es.unex.pi.dao.HostingDAO;
 import es.unex.pi.dao.JDBCCategoryDAOImpl;
 import es.unex.pi.dao.JDBCHostingDAOImpl;
+import es.unex.pi.dao.JDBCServiceDAOImpl;
+import es.unex.pi.dao.ServiceDAO;
 import es.unex.pi.model.Category;
 import es.unex.pi.model.Hosting;
+import es.unex.pi.model.Service;
 import es.unex.pi.model.User;
 
 /**
@@ -98,16 +101,17 @@ public class MainWebServlet extends HttpServlet {
 		return listAux;
 
 	}
-	
-	private List<Hosting> buscarTexto(List<Hosting> allHost, String text) {
-
-		List<Hosting> listAux = new ArrayList<Hosting>();
-		for (Hosting hosting : allHost) {
-			if(hosting.getTitle().contains(text) || hosting.getDescription().contains(text)) 
-				listAux.add(hosting);
-		}
-		return listAux;
+	private List<Hosting> busquedadAvanzada(List<Hosting> allHost,List<Service> allService,List<Category> allCategory,
+			String category,String provincia,String search2, String MinPrice, String MaxPrice, String service){
+		
+		
+		
+		
+		return allHost;
+		
 	}
+	
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -122,9 +126,13 @@ public class MainWebServlet extends HttpServlet {
 		categoryDAO.setConnection(conn);
 		HostingDAO hostingDAO = new JDBCHostingDAOImpl();
 		hostingDAO.setConnection(conn);
+		
+		ServiceDAO serviceDAO = new JDBCServiceDAOImpl();
+		serviceDAO.setConnection(conn);
 
+		List<Service> allService = serviceDAO.getAll();
 		List<Hosting> allHost = hostingDAO.getAll();
-		List<Category> category = categoryDAO.getAll();
+		List<Category> allCategory = categoryDAO.getAll();
 
 		String profile = "visibility: hidden";
 		String login = "visibility: visible";
@@ -138,18 +146,45 @@ public class MainWebServlet extends HttpServlet {
 		if(request.getParameter("filterFav")!=null)
 			allHost = buscaEstado(allHost, request.getParameter("filterFav"));
 		if(request.getParameter("search")!=null)
-			allHost = buscarTexto(allHost, request.getParameter("search"));
+			allHost = hostingDAO.getAllBySearchAll(request.getParameter("search"));
+		
 	
 		
-		if(request.getParameter("MinPrice")!= null && request.getParameter("MaxPrice")!= null) {
-			
-		}
-			
+		String category="";
+		String provincia="";
+		String search2="";
+		String MinPrice="";
+		String MaxPrice="";
+		String service="";
 		
+		if(request.getParameter("search2")!=null)	{
+			
+			search2 = request.getParameter("search2");
+
+			if(request.getParameter("category")!=null)
+				category = request.getParameter("category");
+			
+			if(request.getParameter("provincia")!=null)
+				provincia = request.getParameter("provincia");
+	
+			if(request.getParameter("MinPrice")!=null)
+				MinPrice = request.getParameter("MinPrice");
+			
+			if(request.getParameter("MaxPrice")!=null)
+				MaxPrice = request.getParameter("MaxPrice");
+			
+			if(request.getParameter("service")!=null)
+				service = request.getParameter("service");
+		
+			allHost = busquedadAvanzada(allHost,allService,allCategory,category,provincia,
+					search2,MinPrice,MaxPrice,service);
+		}
 		request.setAttribute("profile", profile);
 		request.setAttribute("login", login);
-		request.setAttribute("category", category);
+		request.setAttribute("category", allCategory);
 		request.setAttribute("allHost", allHost);
+		request.setAttribute("allServ", allService);
+
 
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/mainweb.jsp");
 		view.forward(request, response);

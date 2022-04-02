@@ -18,15 +18,14 @@
         <nav class="navigation">
           <ul>
             <li><a href="${pageContext.request.contextPath}/MainWebServlet">Inicio</a></li>
-            <li><a href="${pageContext.request.contextPath}/waterbnb/HostServlet">Localización</a></li>
-            <li><div ${profile}><a class=desp href="${pageContext.request.contextPath}/waterbnb/HostServlet">Mis Alojamientos</a></div></li>  
+            <li><div ${profile}><a class=desp href="${pageContext.request.contextPath}/user/HostServlet">Mis Alojamientos</a></div></li>  
           	<li><div ${profile}><a href="#">Perfil</a></div>
        			<ul>
-           			<li><a class=desp href="${pageContext.request.contextPath}/waterbnb/ProfileServlet">Editar Perfil</a></li>          	
+           			<li><a class=desp href="${pageContext.request.contextPath}/user/ProfileServlet">Editar Perfil</a></li>          	
            		</ul>
             </li>
             <li><div ${login}><a href="waterbnb/LoginUserServlet">Login</a></div>
-            <li><div ${profile}><a href="${pageContext.request.contextPath}/waterbnb/LogoutServlet">Salir</a></div></li>
+            <li><div ${profile}><a href="${pageContext.request.contextPath}/user/LogoutServlet">Salir</a></div></li>
           </ul>
         </nav>
       </div>

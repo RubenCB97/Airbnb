@@ -20,7 +20,7 @@
 
 	<main class="main">
 		<div class="container">
-			<h2>Titulo: ${host.title}</h2>
+			<h2>${host.title}</h2>
 			<div class="row">
 				<div class="column">
 					<img src="${pageContext.request.contextPath}/images/House1.jpg"
@@ -36,11 +36,11 @@
 						alt="TestHouse" />
 				</div>
 				<div class="column">
-					<h3>${host.price}€/noche</h3>
+					<h3>${host.price} €/noche</h3>
 					<p>${host.description}</p>
-					<p>${host.location}.</p>
+					<p>${host.location}</p>
 					<p>Tlf: ${host.telephone}</p>
-					<p>Correo de contacto: ${host.contactEmail}.</p>
+					<p>Correo de contacto: ${host.contactEmail}</p>
 					<p>
 						Categoria:
 
@@ -56,32 +56,34 @@
 					<div>
 						<c:choose>
 							<c:when test="${host.available=='1'}">
-    					Estado: Reservado
+    					<h4> Reservado</h4>
     				</c:when>
 							<c:otherwise>
-    					Estado: Disponible
+    					<h4> Disponible</h4>
 					</c:otherwise>
 						</c:choose>
 					</div>
 					<div>
-						<p>Likes :${host.likes}</p>
+						<p>Likes: ${host.likes}</p>
 					</div>
+					<div class="like">
 					<c:choose>
 						<c:when test="${like=='0'}">
 							<form
 								action="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}"
 								method="POST">
-								<input type="submit" value="Dar Like" />
+								<input class="buttonLike" type="submit" value="Dar Like" />
 							</form>
 						</c:when>
 						<c:otherwise>
 							<form
 								action="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}"
 								method="POST">
-								<input type="submit" value="Quitar Like" />
+								<input class="buttonLike" type="submit" value="Quitar Like" />
 							</form>
 						</c:otherwise>
 					</c:choose>
+					</div>
 				</div>
 			</div>
 		</div>

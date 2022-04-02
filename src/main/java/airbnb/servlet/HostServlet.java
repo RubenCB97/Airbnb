@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +38,7 @@ import es.unex.pi.util.Triplet;
 /**
  * Servlet implementation class HostServlet
  */
-@WebServlet(urlPatterns = { "/waterbnb/HostServlet" })
+@WebServlet(urlPatterns = { "/user/HostServlet" })
 
 public class HostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -54,6 +56,7 @@ public class HostServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		logger.info("HostServlet-GET");

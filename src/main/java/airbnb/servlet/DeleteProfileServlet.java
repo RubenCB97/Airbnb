@@ -18,7 +18,7 @@ import es.unex.pi.model.User;
 /**
  * Servlet implementation class DeleteProfileServlet
  */
-@WebServlet(urlPatterns = { "/waterbnb/DeleteProfileServlet" })
+@WebServlet(urlPatterns = { "/user/DeleteProfileServlet" })
 
 public class DeleteProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

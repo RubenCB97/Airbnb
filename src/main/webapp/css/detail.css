@@ -36,6 +36,21 @@ body {
 .main {
   padding-top: 3rem;
 }
+.crearHost{
+	 padding-top: 1.4rem;
+	 padding-left: 1rem;
+}
+
+.crear{
+	border-radius:10px;
+	padding: 10px;
+	border: 1px solid #d3d2d2;
+	
+
+}
+.crear:hover{
+	background-color: #d1d1d1;
+}
 
 img {
   width: 100%;
@@ -58,7 +73,27 @@ img {
   margin-top: 5px;
 }
 
+.buttonLike{
+	border-radius: 5px;
+	border: 2px solid #d1d1d1;
+}
+.buttonLike:hover{
+	background-color: #d1d1d1;
+}
 
+.modificar{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.mod{
+	margin-right: 10px;
+	border: 2px solid #d1d1d1;
+	border-radius: 5px;
+}
+.mod:hover{
+	background-color: #d1d1d1;
+}
 label {
   color: grey;
   font-size: 20px;
@@ -101,18 +136,7 @@ h2{
 }
 
 @media only screen and (max-width: 900px) {
-  .navigation {
-    width: 100%;
-  }
-  .navigation ul li {
-    display: inline-block;
-  }
-  .navigation ul li a {
-    display: block;
-    padding: 0.2rem 1rem;
-    transition: all 0.4s linear;
-    border-radius: 10px;
-  }
+
   .column {
     flex: 100%;
   }

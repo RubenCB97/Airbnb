@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet(urlPatterns = { "/waterbnb/LogoutServlet" })
+@WebServlet(urlPatterns = { "/user/LogoutServlet" })
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

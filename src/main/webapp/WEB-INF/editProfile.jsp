@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Perfil</title>
+<title>Waterbnb-Perfil</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/detail.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/card.css" />
@@ -26,7 +26,7 @@
 		<form method="POST" action="ProfileServlet">
 
 			<p>Contraseña actual</p>
-			<input class="input" type="password" name="passwordOld" id="pass"
+			<input class="input" type="password" name="passwordOld" id="passOld"
 				placeholder="Contraseña actual" />
 			<p>Contraseña nueva</p>
 			<input class="input" type="password"

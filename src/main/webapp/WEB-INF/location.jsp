@@ -24,8 +24,6 @@
         </select>
         <select required name="provincia" class="form-control">
           <option value="">Elige Provincia</option>
-          <option value="Cáceres">Cáceres</option>
-          <option value="-----">-----</option>
           <option value="Álava/Araba">Álava/Araba</option>
           <option value="Albacete">Albacete</option>
           <option value="Alicante">Alicante</option>

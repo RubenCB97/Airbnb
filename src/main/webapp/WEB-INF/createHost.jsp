@@ -23,7 +23,7 @@
 	<main class="main">
 
 		<form
-			action="${pageContext.request.contextPath}/waterbnb/CreateHostServlet"
+			action="${pageContext.request.contextPath}/user/CreateHostServlet"
 			method="POST">
 			<div class="container">
 				<h2>

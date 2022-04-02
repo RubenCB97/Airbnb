@@ -41,7 +41,7 @@ import es.unex.pi.model.User;
 /**
  * Servlet implementation class EditHostServlet
  */
-@WebServlet (urlPatterns = { "/waterbnb/EditHostServlet" })
+@WebServlet (urlPatterns = { "/user/EditHostServlet" })
 public class EditHostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());   
@@ -202,7 +202,7 @@ public class EditHostServlet extends HttpServlet {
 
 
 		hostingDAO.save(host);
-		response.sendRedirect("../waterbnb/HostServlet");
+		response.sendRedirect("../user/HostServlet");
 		
 
 	

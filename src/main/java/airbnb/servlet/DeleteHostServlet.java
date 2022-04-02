@@ -20,7 +20,7 @@ import es.unex.pi.model.Hosting;
 /**
  * Servlet implementation class DeleteHostServlet
  */
-@WebServlet (urlPatterns = { "/waterbnb/DeleteHostServlet" })
+@WebServlet (urlPatterns = { "/user/DeleteHostServlet" })
 public class DeleteHostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());   
@@ -55,7 +55,7 @@ public class DeleteHostServlet extends HttpServlet {
 		
 		hostingDAO.delete(Integer.parseInt(request.getParameter("id")));
 
-		response.sendRedirect("../waterbnb/HostServlet");
+		response.sendRedirect("../user/HostServlet");
 	}
 
 }
