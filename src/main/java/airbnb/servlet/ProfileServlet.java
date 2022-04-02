@@ -43,14 +43,11 @@ public class ProfileServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
-		String profile = "visibility: visible";
-		String login = "visibility: hidden";
-		request.setAttribute("profile", profile);
-		request.setAttribute("login", login);
 
 		request.setAttribute("name", user.getUsername());
 		request.setAttribute("email", user.getEmail());
-
+		request.setAttribute("profile", "visibility: visible");
+		request.setAttribute("login",  "visibility: hidden");
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/editProfile.jsp");
 		view.forward(request, response);
 

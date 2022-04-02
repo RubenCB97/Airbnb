@@ -59,11 +59,7 @@ public class DetailHostServlet extends HttpServlet {
 		logger.info("DetailHostServlet-GET");
 		request.setCharacterEncoding("UTF-8");
 
-		String visibility_profile = "visibility: visible";
-		String visibility_login = "visibility: hidden";
-		
-		request.setAttribute("visibility_profile", visibility_profile);
-		request.setAttribute("visibility_login", visibility_login);
+
 		
 		//Conexion con BD
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
@@ -88,7 +84,12 @@ public class DetailHostServlet extends HttpServlet {
 		
 		Hosting host = hostingDAO.get(Integer.parseInt(request.getParameter("id")));
 		
-		
+		String profile = "visibility: hidden";
+		String login = "visibility: visible";
+		if (user != null) {
+			profile = "visibility: visible";
+			login = "visibility: hidden";
+		}
 		
 		List<Category> category = categoryDAO.getAll();
 		List<HostingCategories> HC = HostingsCategoriesDAO.getAllByHosting(host.getId());	
@@ -122,11 +123,13 @@ public class DetailHostServlet extends HttpServlet {
 		}
 		
 		
-		
+
 		request.setAttribute("like", like);
 		request.setAttribute("serviceList", hostServices);
 		request.setAttribute("categoryList", hostCategories);
 		request.setAttribute("host", host);
+		request.setAttribute("profile", profile);
+		request.setAttribute("login",  login);
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/detail.jsp");
 		view.forward(request, response);
 	}

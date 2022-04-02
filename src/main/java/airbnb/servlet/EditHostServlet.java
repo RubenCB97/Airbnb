@@ -60,12 +60,7 @@ public class EditHostServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.info("EditHostServlet-GET");
 
-		String visibility_profile = "visibility: visible";
-		String visibility_login = "visibility: hidden";
-		
-		request.setAttribute("visibility_profile", visibility_profile);
-		request.setAttribute("visibility_login", visibility_login);
-		
+	
 		//Conexion con BD
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		HostingDAO hostingDAO = new JDBCHostingDAOImpl();
@@ -120,6 +115,8 @@ public class EditHostServlet extends HttpServlet {
 		request.setAttribute("serviceList", hostServices);
 		request.setAttribute("categoryList", hostCategories);
 		request.setAttribute("host", host);
+		request.setAttribute("profile", "visibility: visible");
+		request.setAttribute("login",  "visibility: hidden");
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/editHosts.jsp");
 		view.forward(request, response);
 	}

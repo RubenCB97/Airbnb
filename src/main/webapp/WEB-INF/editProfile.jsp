@@ -8,18 +8,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Perfil</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/menu.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/card.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/detail.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/card.css" />
 </head>
 
 <body>
 
+	<%@include file="/WEB-INF/menu.jsp"%>
 
 	<div class="Main">
-		<p>${messages}</p>
+	<p>adada</p><p>adad</p>
 		<div class="tittle">
 			<b>${name} - Editar perfil</b>
 		</div>
@@ -37,16 +36,19 @@
 			<p>Cambiar email</p>
 			<input class="input" type="email"
 				pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}" name="email"
-				required id="email" placeholder="Email" /> <input
-				type="submit" value="Guardar cambios" />
+				required id="email" placeholder="Email" /> <input type="submit"
+				value="Guardar cambios" />
 		</form>
 
 		<div>
-			<form  method="POST" action="DeleteProfileServlet">
+			<form method="POST" action="DeleteProfileServlet">
 				<input type="submit" value="Eliminar Cuenta" />
 			</form>
 		</div>
+		<p>${messages}</p>
 	</div>
+			
+	
 
 </body>
 </html>

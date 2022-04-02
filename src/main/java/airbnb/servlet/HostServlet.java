@@ -62,8 +62,6 @@ public class HostServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
-		request.setAttribute("visibility_profile", "visibility: visible");
-		request.setAttribute("visibility_login", "visibility: hidden");
 
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		HostingDAO hostingDAO = new JDBCHostingDAOImpl();
@@ -112,8 +110,9 @@ public class HostServlet extends HttpServlet {
 			userHostingMap.put(hs, caux);
 		}
 		request.setAttribute("userServicesMap", userServicesMap);
-
 		request.setAttribute("hostlistMap", userHostingMap);
+		request.setAttribute("profile", "visibility: visible");
+		request.setAttribute("login",  "visibility: hidden");
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/myHosts.jsp");
 		view.forward(request, response);
 

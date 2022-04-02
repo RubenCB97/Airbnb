@@ -55,7 +55,7 @@
 						</c:forEach>
 						<p>Estado:</p>
 						<input type="radio" name="state" id="available" checked value="0"/> Disponible
-						<input type="radio" name="state" id="Booked" value="1" /> Ocupado
+						<input type="radio" name="state" id="Booked" value="1" /> Reservado
 						
 						<div>
 							<input type="submit" value="Crear Alojamiento" />

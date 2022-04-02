@@ -20,59 +20,68 @@
 
 	<main class="main">
 		<div class="container">
-			<h2>
-				Titulo: ${host.title}
-			</h2>
-				<div class="row">
+			<h2>Titulo: ${host.title}</h2>
+			<div class="row">
 				<div class="column">
-					<img src="${pageContext.request.contextPath}/images/House1.jpg" alt="TestHouse" /> <img
-						src="${pageContext.request.contextPath}/images/piscina-lujo.jpg" alt="TestHouse" />
+					<img src="${pageContext.request.contextPath}/images/House1.jpg"
+						alt="TestHouse" /> <img
+						src="${pageContext.request.contextPath}/images/piscina-lujo.jpg"
+						alt="TestHouse" />
 				</div>
 				<div class="column">
-					<img src="${pageContext.request.contextPath}/images/piscina-lujo2.jpg" alt="TestHouse" /> <img
-						src="${pageContext.request.contextPath}/images/piscina-lujo3.jpg" alt="TestHouse" />
+					<img
+						src="${pageContext.request.contextPath}/images/piscina-lujo2.jpg"
+						alt="TestHouse" /> <img
+						src="${pageContext.request.contextPath}/images/piscina-lujo3.jpg"
+						alt="TestHouse" />
 				</div>
 				<div class="column">
-					<h3>${host.price}€/noche </h3>
+					<h3>${host.price}€/noche</h3>
 					<p>${host.description}</p>
 					<p>${host.location}.</p>
 					<p>Tlf: ${host.telephone}</p>
 					<p>Correo de contacto: ${host.contactEmail}.</p>
-					<p>Categoria:
-						
-					<c:forEach var="cat" items="${categoryList}">
+					<p>
+						Categoria:
+
+						<c:forEach var="cat" items="${categoryList}">
 						${cat.name} 
-    				</c:forEach> 
-					<p>Servicios:
+    				</c:forEach>
+					<p>
+						Servicios:
 						<c:forEach var="serv" items="${serviceList}">
 						${serv.name}
-						</c:forEach> 		
+						</c:forEach>
 					</p>
 					<div>
-					<c:choose>
-						<c:when test="${host.available=='1'}">
-    					Estado: Booked
+						<c:choose>
+							<c:when test="${host.available=='1'}">
+    					Estado: Reservado
     				</c:when>
-						<c:otherwise>
-    					Estado: Available
+							<c:otherwise>
+    					Estado: Disponible
 					</c:otherwise>
-					</c:choose>
+						</c:choose>
 					</div>
 					<div>
-					<p>Likes :${host.likes}</p>
+						<p>Likes :${host.likes}</p>
 					</div>
 					<c:choose>
-					<c:when test="${like=='0'}">
-						<form action="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}" method="POST">
-						<input type="submit" value="Dar Like" />   					
-						</form>
-					 </c:when>
-					<c:otherwise>
-    					<form action="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}" method="POST">
-						<input type="submit" value="Quitar Like" />		
-						</form>
-					</c:otherwise>
-					</c:choose>	
+						<c:when test="${like=='0'}">
+							<form
+								action="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}"
+								method="POST">
+								<input type="submit" value="Dar Like" />
+							</form>
+						</c:when>
+						<c:otherwise>
+							<form
+								action="${pageContext.request.contextPath}/DetailHostServlet?id=${host.id}"
+								method="POST">
+								<input type="submit" value="Quitar Like" />
+							</form>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>

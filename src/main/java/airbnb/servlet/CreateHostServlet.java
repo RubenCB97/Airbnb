@@ -55,7 +55,7 @@ public class CreateHostServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.info("CreateHostServlet-GET");
 		request.setCharacterEncoding("UTF-8");
-
+ 
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		CategoryDAO categoryDAO = new JDBCCategoryDAOImpl();
 		categoryDAO.setConnection(conn);
@@ -66,8 +66,11 @@ public class CreateHostServlet extends HttpServlet {
 		List<Service> allServices = serviceDAO.getAll();
 		List<Category> allCategories = categoryDAO.getAll();
 		
+		
 		request.setAttribute("serviceList", allServices);
 		request.setAttribute("categoryList", allCategories);
+		request.setAttribute("profile", "visibility: visible");
+		request.setAttribute("login",  "visibility: hidden");
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/createHost.jsp");
 		view.forward(request, response);

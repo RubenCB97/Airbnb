@@ -64,10 +64,10 @@
 						<p>Likes: ${host.key.likes}</p>
 						<c:choose>
 							<c:when test="${host.key.available=='1'}">
-		    			Estado: Booked
+		    			Estado: Reservado
 		    		</c:when>
 							<c:otherwise>
-		    			Estado: Available
+		    			Estado: Disponible
 		    		</c:otherwise>
 						</c:choose>
 						<div>

@@ -10,8 +10,12 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
+
 
 import es.unex.pi.dao.CategoryDAO;
 import es.unex.pi.dao.HostingDAO;
@@ -40,6 +44,71 @@ public class MainWebServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	private List<Hosting> ordenarFavoritos(List<Hosting> allHost, String likes , String minlikes) {
+		
+		List<Hosting> listAux = new ArrayList<Hosting>();
+		
+		if(minlikes!=null) {
+		for (Hosting hosting : allHost) {
+			if(hosting.getLikes()>= Integer.parseInt(minlikes)) {
+				listAux.add(hosting);
+			}
+		}
+		}else {
+			listAux = allHost;
+		}
+		
+		
+		if(likes!=null) {
+		Collections.sort(listAux, new Comparator<Hosting>() {
+			@Override
+			public int compare(Hosting h1, Hosting h2) {
+				if (likes.equals("MasLikes")) {
+					return Integer.valueOf(h2.getLikes()).compareTo(Integer.valueOf(h1.getLikes()));
+
+				} else {
+					return Integer.valueOf(h1.getLikes()).compareTo(Integer.valueOf(h2.getLikes()));
+
+				}
+			}
+		
+		});
+		}
+		return listAux;
+
+	}
+	
+	private List<Hosting> buscaEstado(List<Hosting> allHost, String state) {
+
+		List<Hosting> listAux = new ArrayList<Hosting>();
+		for (Hosting hosting : allHost) {
+			
+			if(state.equals("AllHosts")) {
+				return allHost;
+				
+			}else if(state.equals("DispHosts")) {
+				if(hosting.getAvailable() == 0) 
+					listAux.add(hosting);			
+			}else if(state.equals("ResHosts")) {
+				if(hosting.getAvailable() == 1) 
+					listAux.add(hosting);			
+			}
+		}
+
+		return listAux;
+
+	}
+	
+	private List<Hosting> buscarTexto(List<Hosting> allHost, String text) {
+
+		List<Hosting> listAux = new ArrayList<Hosting>();
+		for (Hosting hosting : allHost) {
+			if(hosting.getTitle().contains(text) || hosting.getDescription().contains(text)) 
+				listAux.add(hosting);
+		}
+		return listAux;
+	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		logger.info("MainWebServlet-GET");
@@ -48,26 +117,40 @@ public class MainWebServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
-		
+
 		CategoryDAO categoryDAO = new JDBCCategoryDAOImpl();
 		categoryDAO.setConnection(conn);
 		HostingDAO hostingDAO = new JDBCHostingDAOImpl();
 		hostingDAO.setConnection(conn);
-		
+
 		List<Hosting> allHost = hostingDAO.getAll();
 		List<Category> category = categoryDAO.getAll();
 
-		String visibility_profile = "visibility: hidden";
-		String visibility_login = "visibility: visible";
+		String profile = "visibility: hidden";
+		String login = "visibility: visible";
 		if (user != null) {
-			visibility_profile = "visibility: visible";
-			visibility_login = "visibility: hidden";
+			profile = "visibility: visible";
+			login = "visibility: hidden";
 		}
-		request.setAttribute("visibility_profile", visibility_profile);
-		request.setAttribute("visibility_login", visibility_login);
+
+		if (request.getParameter("filterLikes") != null || request.getParameter("MinLikes")!=null)
+			allHost = ordenarFavoritos(allHost, request.getParameter("filterLikes"),request.getParameter("MinLikes"));
+		if(request.getParameter("filterFav")!=null)
+			allHost = buscaEstado(allHost, request.getParameter("filterFav"));
+		if(request.getParameter("search")!=null)
+			allHost = buscarTexto(allHost, request.getParameter("search"));
+	
+		
+		if(request.getParameter("MinPrice")!= null && request.getParameter("MaxPrice")!= null) {
+			
+		}
+			
+		
+		request.setAttribute("profile", profile);
+		request.setAttribute("login", login);
 		request.setAttribute("category", category);
 		request.setAttribute("allHost", allHost);
-		
+
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/mainweb.jsp");
 		view.forward(request, response);
 	}

@@ -64,63 +64,62 @@
 						<p>Correo de contacto:</p>
 						<input class="input" type="email" name="contactEmail"
 							id="contactEmail" value="${host.contactEmail}" />
-						
-						<p>Categoria:
-						
+
+						<p>
+							Categoria:
+
 							<c:forEach var="cat" items="${categoryList}">
 								<c:choose>
 									<c:when test="${cat.value == true }">
-		    							<input id="${cat.key.name}" type="checkbox" name="categories" checked value="${cat.key.id}"/> 
-       									<label for="${cat.key.name} ">${cat.key.name}</label> 
-			    				</c:when>
+										<input id="${cat.key.name}" type="checkbox" name="categories"
+											checked value="${cat.key.id}" />
+										<label for="${cat.key.name} ">${cat.key.name}</label>
+									</c:when>
 									<c:otherwise>
-			    						<input id="${cat.key.name}" type="checkbox" name="categories" value="${cat.key.id}"/> 
-       									<label for="${cat.key.name} ">${cat.key.name}</label>
-								</c:otherwise>
-								</c:choose> 
-						</c:forEach> 
-						
+										<input id="${cat.key.name}" type="checkbox" name="categories"
+											value="${cat.key.id}" />
+										<label for="${cat.key.name} ">${cat.key.name}</label>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+
 						</p>
-						
-						<p>Servicios:
+
+						<p>
+							Servicios:
 							<c:forEach var="serv" items="${serviceList}">
 								<c:choose>
 									<c:when test="${serv.value == true }">
-		    							<input id="${serv.key.name}" type="checkbox" name="services" checked value="${serv.key.id}"/> 
-       									<label for="${serv.key.name}">${serv.key.name}</label> 
-			    				</c:when>
+										<input id="${serv.key.name}" type="checkbox" name="services"
+											checked value="${serv.key.id}" />
+										<label for="${serv.key.name}">${serv.key.name}</label>
+									</c:when>
 									<c:otherwise>
-			    						<input id="${serv.key.name}" type="checkbox" name="services" value="${serv.key.id}"/> 
-       									<label for="${serv.key.name}">${serv.key.name}</label>
+										<input id="${serv.key.name}" type="checkbox" name="services"
+											value="${serv.key.id}" />
+										<label for="${serv.key.name}">${serv.key.name}</label>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</p>
+
+						<div>
+							<c:choose>
+								<c:when test="${host.available=='1'}">
+									<input type="radio" name="state" id="available" value="0" />
+									<label for="available">Disponible </label>
+									<input type="radio" name="state" id="Booked" value="1"
+										checked="checked" />
+									<label for="Booked">Reservado </label>
+
+								</c:when>
+								<c:otherwise>
+									<input type="radio" name="state" id="available" value="0"
+										checked="checked" />
+									<label for="available">Disponible </label>
+									<input type="radio" name="state" id="Booked" value="1" />
+									<label for="Booked">Reservado </label>
 								</c:otherwise>
-								</c:choose> 
-						</c:forEach> 														
-                    	</p>
-						<div>
-							<c:choose>
-								<c:when test="${host.available=='1'}">
-		    					Estado: Booked
-		    				</c:when>
-								<c:otherwise>
-		    					Estado: Available
-							</c:otherwise>
-							</c:choose>
-						</div>
-						<div>
-							<c:choose>
-								<c:when test="${host.available=='1'}">
-									<input type="radio" name="state" id="available" value="0" /> 
-									<label for="available">Disponible </label>
-									<input type="radio" name="state" id="Booked" value="1" checked="checked" />
-									<label for="Booked">Ocupado </label>
-								
-		    				</c:when>
-								<c:otherwise>
-									<input type="radio" name="state" id="available" value="0" checked="checked" /> 
-									<label for="available">Disponible </label>
-									<input type="radio" name="state" id="Booked" value="1"  />
-									<label for="Booked">Ocupado </label>
-							</c:otherwise>
 							</c:choose>
 
 
@@ -134,8 +133,8 @@
 				</div>
 			</div>
 		</form>
-				<p>${menError}</p>
-		
+		<p>${menError}</p>
+
 
 	</main>
 </body>
