@@ -120,8 +120,9 @@ public class MainWebServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
+	
+		//Conexión a la BD
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
-
 		CategoryDAO categoryDAO = new JDBCCategoryDAOImpl();
 		categoryDAO.setConnection(conn);
 		HostingDAO hostingDAO = new JDBCHostingDAOImpl();
@@ -134,6 +135,7 @@ public class MainWebServlet extends HttpServlet {
 		List<Hosting> allHost = hostingDAO.getAll();
 		List<Category> allCategory = categoryDAO.getAll();
 
+		//Menu
 		String profile = "visibility: hidden";
 		String login = "visibility: visible";
 		if (user != null) {

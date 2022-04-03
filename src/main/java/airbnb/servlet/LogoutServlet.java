@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * Servlet implementation class LogoutServlet
@@ -15,6 +16,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = { "/user/LogoutServlet" })
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());   
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -29,7 +31,8 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		logger.info("LogoutServlet-GET");
+
 		HttpSession session = request.getSession(false);
 
 		if (session != null)

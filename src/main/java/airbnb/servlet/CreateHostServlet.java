@@ -54,12 +54,11 @@ public class CreateHostServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.info("CreateHostServlet-GET");
-		request.setCharacterEncoding("UTF-8");
- 
+
+		//Conexion a la BD
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		CategoryDAO categoryDAO = new JDBCCategoryDAOImpl();
 		categoryDAO.setConnection(conn);
-		
 		ServiceDAO serviceDAO = new JDBCServiceDAOImpl();
 		serviceDAO.setConnection(conn);
 		
@@ -69,6 +68,8 @@ public class CreateHostServlet extends HttpServlet {
 		
 		request.setAttribute("serviceList", allServices);
 		request.setAttribute("categoryList", allCategories);
+		
+		//Menu
 		request.setAttribute("profile", "visibility: visible");
 		request.setAttribute("login",  "visibility: hidden");
 		
@@ -98,24 +99,18 @@ public class CreateHostServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		
+		
 		if (user != null) {
 		
 			ArrayList<String> categories= null;
 			if(request.getParameterValues("categories")!=null) {
 				categories = new ArrayList<String>(Arrays.asList(request.getParameterValues("categories")));
-			}else {
-				request.setAttribute("menError", "Selecciona categoria");
-				doGet(request, response);
-			}
+			
 			
 			ArrayList<String> services= null;
 			if(request.getParameterValues("services")!=null) {
 				services = new ArrayList<String>(Arrays.asList(request.getParameterValues("services")));
 			}
-			
-			
-			
-			
 				
 			Hosting host = new Hosting();
 			
@@ -146,6 +141,10 @@ public class CreateHostServlet extends HttpServlet {
 					h.setIdh(id);
 					hostingServicesDAO.add(h);
 				}
+			}
+			}else {
+				request.setAttribute("menError", "Selecciona categoria");
+				doGet(request, response);
 			}
 		
 		response.sendRedirect("../user/HostServlet");

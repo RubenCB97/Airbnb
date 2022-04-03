@@ -65,7 +65,7 @@ public class HostServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
-
+		//Conexión con la BD
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		HostingDAO hostingDAO = new JDBCHostingDAOImpl();
 		hostingDAO.setConnection(conn);

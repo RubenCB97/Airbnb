@@ -14,7 +14,11 @@
     <url-pattern>/user/*</url-pattern>
   </filter-mapping>
   
-  <!-- Descomentar si TOMCAT configurado--> 
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/error.jsp</location>
+  </error-page>
+  <!-- Descomentar si TOMCAT configurado
   <security-constraint>
   	<web-resource-collection>
   		<web-resource-name>Entire Application</web-resource-name>
@@ -24,5 +28,5 @@
   		<transport-guarantee>CONFIDENTIAL</transport-guarantee>
   	</user-data-constraint>
   </security-constraint>
- 
+ --> 
 </web-app>

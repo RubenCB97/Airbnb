@@ -84,6 +84,7 @@ public class DetailHostServlet extends HttpServlet {
 		
 		Hosting host = hostingDAO.get(Integer.parseInt(request.getParameter("id")));
 		
+		//Menu
 		String profile = "visibility: hidden";
 		String login = "visibility: visible";
 		if (user != null) {
@@ -94,12 +95,12 @@ public class DetailHostServlet extends HttpServlet {
 		List<Category> category = categoryDAO.getAll();
 		List<HostingCategories> HC = HostingsCategoriesDAO.getAllByHosting(host.getId());	
 		List<Category> hostCategories = new ArrayList<>();
-		
 		List<Service> service = serviceDAO.getAll();
 		List<HostingServices> HS = hostingServicesDAO.getAllByHosting(host.getId());
 		List<Service> hostServices = new ArrayList<>();
 
 		String like = "0";
+		
 		for (Category ca : category) {
 			for (HostingCategories hc : HC) {
 				if(ca.getId() == hc.getIdct()) 
@@ -140,7 +141,8 @@ public class DetailHostServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		
+		logger.info("DetailHostServlet-POST");
+
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		
