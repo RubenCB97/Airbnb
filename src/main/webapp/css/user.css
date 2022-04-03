@@ -6,7 +6,8 @@ body {
 }
 
 .login,
-.register {
+.register,
+.editPerfil {
   background: url(../images/login6.jpg) no-repeat fixed center;
   background-size: cover;
   width: 100%;
@@ -15,7 +16,18 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+.title{
+	margin-left: 36px;
+	color: black;
+	font-size: 25px;
+	margin-bottom: 25px;
+	margin-right: 20px;
+}
+.email{
+	margin-bottom: 18px;
+    color: black;
+    font-size: 18px;
+}
 .login-card {
   background: white;
   color: #3e3e3e;
@@ -67,7 +79,7 @@ h1 {
   border: none;
   outline: none;
   height: 40px;
-  background: rgb (34 255 184);
+  background: #cecece;
   color: #000;
   font-size: 18px;
   border-radius: 20px;

@@ -9,20 +9,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Waterbnb-Perfil</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/detail.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/card.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/user.css" />
 </head>
 
 <body>
 
 	<%@include file="/WEB-INF/menu.jsp"%>
 
-	<div class="Main">
-	<p>adada</p><p>adad</p>
-		<div class="tittle">
+	<div class="editPerfil">
+	<div class="login-card">
+		<div class="title">
 			<b>${name} - Editar perfil</b>
 		</div>
+		<div class="email">
 		<p>Email actual: ${email}</p>
+		</div>
 		<form method="POST" action="ProfileServlet">
 
 			<p>Contraseña actual</p>
@@ -45,9 +47,9 @@
 				<input type="submit" value="Eliminar Cuenta" />
 			</form>
 		</div>
-		<p>${messages}</p>
+		<p class="error">${messages}</p>
 	</div>
-			
+	</div>	
 	
 
 </body>

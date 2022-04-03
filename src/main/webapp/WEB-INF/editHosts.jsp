@@ -65,9 +65,7 @@
 						<input class="input" type="email" name="contactEmail"
 							id="contactEmail" value="${host.contactEmail}" />
 
-						<p>
-							Categoria:
-
+						<p>Categoria:
 							<c:forEach var="cat" items="${categoryList}">
 								<c:choose>
 									<c:when test="${cat.value == true }">
@@ -82,9 +80,7 @@
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
-
 						</p>
-
 						<p>
 							Servicios:
 							<c:forEach var="serv" items="${serviceList}">
@@ -121,21 +117,15 @@
 									<label for="Booked">Reservado </label>
 								</c:otherwise>
 							</c:choose>
-
-
 						</div>
-						<div></div>
-
 						<div>
-							<input type="submit" value="Editar" />
+							<input class="create" type="submit" value="Editar" />
 						</div>
+						<div class="error">${menError}</div>
 					</div>
 				</div>
 			</div>
 		</form>
-		<p>${menError}</p>
-
-
 	</main>
 </body>
 </html>

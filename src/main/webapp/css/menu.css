@@ -88,3 +88,13 @@ ul, ol {
 }
 
 
+@media only screen and (max-width: 530px) {
+  .header{
+  height: 65px;
+  margin-bottom: 40px;
+  
+  }
+  
+  
+
+}
